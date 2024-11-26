@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>{{ catalogo.nome }}</h2>
+<ul>
+    {% for filme in catalogos.musicas.all %}
+    <li>{{ filme.titulo }} - {{ filme.elenco }} - <img src="{{ filme.capa.url }}" alt="{{ filme.titulo }}" width=100></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'catalogo_update' catalogos.pk %}">Editar</a>
+<a href="{% url 'catalogo_delete' catalogos.pk %}">Excluir</a>
+
+{% endblock %}
